@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "name": "Docker: Python - Remove",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug (remove)",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "general"
+            }
+        },
+        {
+            "name": "Docker: Python - No Remove",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug (no remove)",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "general"
+            }
+        }
+    ]
+}

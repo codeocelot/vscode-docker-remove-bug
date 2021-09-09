@@ -1,0 +1,38 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "docker-build",
+			"label": "docker-build",
+			"platform": "python",
+			"dockerBuild": {
+				"tag": "vscodebug:latest",
+				"dockerfile": "${workspaceFolder}/Dockerfile",
+				"context": "${workspaceFolder}",
+				"pull": true
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: debug (remove)",
+			"dependsOn": [
+				"docker-build"
+			],
+			"dockerRun": {"remove": true},
+			"python": {
+				"file": "main.py"
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: debug (no remove)",
+			"dependsOn": [
+				"docker-build"
+			],
+			"dockerRun": {"remove": false},
+			"python": {
+				"file": "main.py"
+			}
+		}
+	]
+}
